@@ -4,5 +4,5 @@ import './components/navigation/navigation.js';
 import './components/header/header.js';
 import './styles/main.scss';
 
-PubSub.publish(PUB_SUB_MESSAGES.SHOW_GLOBAL_LOADER, { duration: 100, animate: false });
+PubSub.publish(PUB_SUB_MESSAGES.SHOW_GLOBAL_LOADER, { duration: 1500, animate: false });
 document.body.style.opacity = '1';

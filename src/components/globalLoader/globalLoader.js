@@ -75,7 +75,7 @@ const showGlobalLoader = ({duration, animate = true} = {}) => {
 	loader.classList.remove(LOADER_ELEMENT_CLASS_NAMES.HIDDEN);
 
 	if (duration) {
-		setTimer('gl-show', hideGlobalLoader, Math.max(100, duration));
+		setTimer('gl-show', hideGlobalLoader, Math.max(1500, duration));
 	}
 };
 
