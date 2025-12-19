@@ -1,0 +1,84 @@
+@use 'header';
+@use 'mixins';
+
+:root {
+  --color-primary: #d93535;
+  --color-accent: #edad4c;
+  --color-text: rgb(240, 236, 217);
+  --color-text-secondary: #282d35;
+  --color-background: #282d35;
+  --color-background-secondary: rgb(240, 236, 217);
+
+  --bg-image-noise: url('/noise.png');
+
+  --rounded-full: 9999px;
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
+
+  --lh-body: 1.5;
+  --lh-heading: 1.2;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --z-max: 9999;
+  --z-min: -1;
+
+  --container: 880px;
+  --container-gap: 16px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100vw;
+  min-width: 320px;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: var(--lh-body);
+  font-weight: var(--fw-normal);
+  color-scheme: dark;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  background-image: var(--bg-image-noise);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: opacity .6s;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.main {
+  flex-grow: 1;
+  overflow: auto;
+  opacity: 0;
+  padding: 60px var(--container-gap);
+
+  &--visible {
+    opacity: 1;
+  }
+
+  @include mixins.bp('desktop') {
+    padding: 80px var(--container-gap);
+  }
+}
+
+.grand-font {
+  font-family: "BBH Hegarty", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

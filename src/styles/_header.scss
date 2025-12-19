@@ -1,0 +1,41 @@
+@use 'mixins';
+@use 'nav';
+
+.header {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  transition: 0.5s ease-in-out;
+  transform: translateY(-200px);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 32px;
+    margin-top: 32px;
+    background-color: var(--color-background);
+    background-image: var(--bg-image-noise);
+    border: 2px solid var(--color-text);
+    border-radius: var(--rounded-md);
+  }
+
+  &__logo {
+    @include mixins.grand-font;
+    font-size: 24px;
+    color: var(--color-primary);
+    user-select: none;
+  }
+
+  &--visible {
+    transform: translateY(0);
+  }
+
+  @include mixins.bp('mobile-only') {
+    &__content {
+      margin-top: var(--container-gap);
+      margin-inline: var(--container-gap);
+    }
+  }
+}

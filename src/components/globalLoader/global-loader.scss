@@ -1,0 +1,92 @@
+@use '../../styles/mixins';
+
+.global-loader {
+  position: fixed;
+  display: flex;
+  inset: 0;
+  z-index: var(--z-max);
+
+  &__left,
+  &__right {
+    @include mixins.grand-font;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+    font-size: 6vw;
+    background: var(--color-background-secondary);
+    color: var(--color-text-secondary);
+    transition: transform 0.8s cubic-bezier(.77, 0, .18, 1);
+
+    span {
+      position: absolute;
+      top: 50%;
+      will-change: transform, opacity;
+      animation: global-loader-pulse 1.5s ease-in-out infinite;
+    }
+  }
+
+  &__left {
+    transform: translateX(var(--left-from));
+
+    span {
+      right: 0;
+      --tx: 50%;
+    }
+  }
+
+  &__right {
+    transform: translateX(var(--right-from));
+
+    span {
+      left: 0;
+      --tx: -50%;
+    }
+  }
+
+  &--visible {
+    .global-loader {
+      &__left {
+        transform: translateX(0);
+      }
+
+      &__right {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &--hidden {
+    pointer-events: none;
+
+    .global-loader {
+      &__left {
+        transform: translateX(-110%);
+      }
+
+      &__right {
+        transform: translateX(110%);
+      }
+
+      span {
+        animation-play-state: paused;
+      }
+    }
+  }
+}
+
+@keyframes global-loader-pulse {
+  0% {
+    transform: translate(var(--tx), -50%) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(var(--tx), -50%) scale(1.06);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: translate(var(--tx), -50%) scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,22 @@
+$bp-mobile-max: 767px;
+$bp-desktop-min: 768px;
+
+@mixin bp($type) {
+  @if $type == desktop {
+    @media (min-width: $bp-desktop-min) {
+      @content;
+    }
+  } @else if $type == mobile-only {
+    @media (max-width: $bp-mobile-max) {
+      @content;
+    }
+  } @else {
+    @error "Unknown breakpoint `#{$type}`. Use: desktop | mobile-only";
+  }
+}
+
+@mixin grand-font {
+  font-family: "BBH Hegarty", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

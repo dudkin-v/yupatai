@@ -1,0 +1,90 @@
+@use '../../styles/mixins';
+
+.f-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 60px;
+
+  &__leaves {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__leave {
+    width: 40px;
+    height: auto;
+
+    &--empty {
+      opacity: 0.5;
+    }
+  }
+
+  @include mixins.bp('desktop') {
+    &__leave {
+      width: 60px;
+    }
+  }
+}
+
+.boxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px 20px;
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+
+  @include mixins.bp('desktop') {
+    gap: 60px 20px;
+  }
+}
+
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: fit-content;
+  width: calc(33.333% - 20px);
+  filter: drop-shadow(3px 3px 6px rgba(255, 248, 167, 0.61));
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__kid {
+    position: absolute;
+    top: -80%;
+    width: 80% !important;
+  }
+
+  &:not(.box--opened) {
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &--opened {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &--wrong {
+    filter: drop-shadow(5px 5px 10px #ff0909);
+  }
+
+  &--success {
+    filter: drop-shadow(5px 5px 10px #4cff00);
+  }
+
+  @include mixins.bp('desktop') {
+    width: calc(25% - 20px);
+  }
+}
