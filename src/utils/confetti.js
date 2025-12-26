@@ -23,7 +23,6 @@ export const adConfetti = () => {
 				scale: 0,
 				rotation: -6,
 				opacity: 0,
-				filter: 'drop-shadow(0 0 0px rgba(255,255,255,0))',
 			},
 			{
 				scale: 1,
@@ -64,7 +63,6 @@ export const adConfetti = () => {
 			.to(
 				logo,
 				{
-					filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.9))',
 					duration: 0.3,
 					yoyo: true,
 					repeat: 1,
