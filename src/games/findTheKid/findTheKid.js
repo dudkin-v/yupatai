@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { PubSub } from '../../utils/pubSub.js';
 import { getMain } from '../../utils/dom.js';
+import { adConfetti } from '../../utils/confetti.js';
 import boxImage from './box.png';
 import openedBoxImage from './box-opened.png';
 import kidImage from './kid.png';
@@ -122,7 +123,7 @@ const openBox = (props) => {
 			duration: 0.2,
 			onComplete: () => {
 				if (inner === 'kid') {
-					alert('You win, great work!');
+					adConfetti();
 					return;
 				}
 

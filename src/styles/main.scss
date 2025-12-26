@@ -2,11 +2,11 @@
 @use 'mixins';
 
 :root {
-  --color-primary: #d93535;
-  --color-accent: #edad4c;
+  --color-primary: #9bff00;
+  --color-accent: #8437ff;
   --color-text: rgb(240, 236, 217);
-  --color-text-secondary: #282d35;
-  --color-background: #282d35;
+  --color-text-secondary: #101215;
+  --color-background: #101215;
   --color-background-secondary: rgb(240, 236, 217);
 
   --bg-image-noise: url('/noise.png');
@@ -66,6 +66,7 @@ ul {
   flex-grow: 1;
   overflow: auto;
   opacity: 0;
+  transition: opacity .5s;
   padding: 60px var(--container-gap);
 
   &--visible {

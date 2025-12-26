@@ -13,6 +13,7 @@
     "vite": "^7.2.4"
   },
   "dependencies": {
+    "@hiseb/confetti": "^2.1.0",
     "gsap": "^3.14.2",
     "PubSub": "^4.0.1"
   }

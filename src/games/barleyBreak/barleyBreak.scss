@@ -1,0 +1,210 @@
+@use '../../styles/mixins';
+
+.bb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.bb__buttons-container {
+  overflow: hidden;
+  width: fit-content;
+  max-width: calc(100% + 32px);
+}
+
+.bb__buttons {
+  display: flex;
+  gap: 16px;
+  overflow: hidden;
+  overflow-x: auto;
+  padding: 0 16px;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    padding: 0;
+  }
+}
+
+.bb__button {
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-text-secondary);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: 0.3s;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+
+  &--selected {
+    background-color: var(--color-accent);
+  }
+
+  @include mixins.bp('desktop') {
+    width: 80px;
+    height: 80px;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(0.95);
+    }
+  }
+}
+
+.bb__play {
+  border: none;
+  min-width: 220px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  background: linear-gradient(245deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-text-secondary);
+  background-size: 300% 300%;
+  animation: pb 3s ease-in-out infinite;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pb {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.bb__board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  width: 85%;
+  max-width: 420px;
+  border: 5px solid var(--color-text);
+  border-radius: 12px;
+  padding: 20px;
+
+  @include mixins.bp('desktop') {
+    width: 60%;
+    max-width: none;
+  }
+}
+
+.bb__brick {
+  width: var(--brick-width);
+
+  & > div {
+    position: relative;
+    padding-bottom: 100%;
+    background-color: #9bff00;
+    color: var(--color-text-secondary);
+    container-type: inline-size;
+    font-size: var(--brick-fs);
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: -3px 3px 10px -3px rgb(108, 108, 108);
+
+    & > div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @include mixins.bp('desktop') {
+      cursor: pointer;
+    }
+
+    &:empty {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &--success {
+    & > div {
+      background-color: var(--color-accent);
+    }
+  }
+}
+
+.bb__game-buttons {
+  display: flex;
+  align-content: center;
+  gap: 24px;
+}
+
+.bb__counter,
+.bb__timer {
+  position: fixed;
+  bottom: 0;
+  font-size: 60px;
+  font-weight: bold;
+
+  @include mixins.bp('desktop') {
+    font-size: 100px;
+  }
+}
+
+.bb__timer {
+  right: 16px;
+}
+
+.bb__counter {
+  left: 16px;
+}
+
+.bb__back,
+.bb__restart {
+  min-width: 160px;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  background-color: var(--color-accent);
+  color: var(--color-text-secondary);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.bb__restart {
+  background-color: var(--color-primary);
+}
+
+.bb__loader {
+  position: fixed;
+  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.bb__loader-bar {
+  width: 300px;
+  height: 5px;
+  background: var(--color-primary);
+  transform: scaleX(0);
+}

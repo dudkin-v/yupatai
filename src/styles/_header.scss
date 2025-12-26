@@ -1,5 +1,4 @@
 @use 'mixins';
-@use 'nav';
 
 .header {
   width: 100%;
@@ -11,18 +10,14 @@
   &__content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 16px 32px;
-    margin-top: 32px;
-    background-color: var(--color-background);
-    background-image: var(--bg-image-noise);
-    border: 2px solid var(--color-text);
-    border-radius: var(--rounded-md);
+    justify-content: center;
+    gap: 80px;
+    padding: 12px 32px;
   }
 
   &__logo {
     @include mixins.grand-font;
+    cursor: pointer;
     font-size: 24px;
     color: var(--color-primary);
     user-select: none;
@@ -32,10 +27,15 @@
     transform: translateY(0);
   }
 
-  @include mixins.bp('mobile-only') {
-    &__content {
-      margin-top: var(--container-gap);
-      margin-inline: var(--container-gap);
+  &__game {
+    font-size: 16px;
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    text-transform: uppercase;
+    color: var(--color-accent);
+
+    &:empty {
+      display: none;
     }
   }
 }
