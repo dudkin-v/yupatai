@@ -68,7 +68,7 @@ const gameManager = async (name) => {
 	}
 
 	state.timerId = setTimeout(() => {
-		state.currentGame.render();
+		state.currentGame.render(main);
 
 		if (currentGameContainer) {
 			currentGameContainer.innerText = GAMES[name].name;
@@ -145,7 +145,7 @@ if (logo) {
 if (currentGameContainer) {
 	currentGameContainer.addEventListener('click', () => {
 		if (state.currentGame) {
-			state.currentGame.restart();
+			state.currentGame.restart(main);
 		}
 	});
 }

@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { PubSub } from '../../utils/pubSub.js';
-import { getMain } from '../../utils/dom.js';
 import { adConfetti } from '../../utils/confetti.js';
 import boxImage from './box.png';
 import openedBoxImage from './box-opened.png';
@@ -192,8 +191,7 @@ const createBox = (props) => {
 	return container;
 };
 
-const renderBoxes = () => {
-	const main = getMain();
+const getBoxes = () => {
 	const emptyBoxed = Array.from({length: BOXES_COUNT});
 	const kidIndex = Math.floor(Math.random() * BOXES_COUNT);
 
@@ -209,13 +207,15 @@ const renderBoxes = () => {
 		boxesContainer.appendChild(box);
 	});
 
-	state.onCloseCallbacks.push(() => boxesContainer.remove());
-	main.appendChild(boxesContainer);
+	return {
+		element: boxesContainer,
+		remove: () => {
+			boxesContainer.remove();
+		},
+	};
 };
 
-const renderHeader = () => {
-	const main = getMain();
-
+const getHeader = () => {
 	const header = document.createElement('div');
 	header.className = 'f-header';
 
@@ -238,16 +238,34 @@ const renderHeader = () => {
 		});
 	});
 
-	state.onCloseCallbacks.push(() => PubSub.unsubscribe(pubSubscriptionId));
-	state.onCloseCallbacks.push(() => header.remove());
-
 	header.appendChild(leaves);
-	main.appendChild(header);
+
+	return {
+		element: header,
+		remove: () => {
+			PubSub.unsubscribe(pubSubscriptionId);
+			header.remove();
+		},
+	};
 };
 
-const render = () => {
-	renderHeader();
-	renderBoxes();
+const render = (container) => {
+	const gameContainer = document.createElement('div');
+	gameContainer.className = 'ftk';
+
+	const header = getHeader();
+	const boxes = getBoxes();
+
+	state.onCloseCallbacks.push(header.remove);
+	state.onCloseCallbacks.push(boxes.remove);
+
+	gameContainer.append(
+		header.element,
+		boxes.element,
+	);
+
+	container.appendChild(gameContainer);
+	state.onCloseCallbacks.push(() => gameContainer.remove());
 };
 
 const close = () => {
@@ -256,10 +274,10 @@ const close = () => {
 	state = JSON.parse(JSON.stringify(defaultState));
 };
 
-const restart = () => {
+const restart = (container) => {
 	close();
 	state.isRestarting = true;
-	render();
+	render(container);
 };
 
 export default {

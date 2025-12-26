@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { PubSub } from '../../utils/pubSub.js';
-import { getMain } from '../../utils/dom.js';
 import { adConfetti } from '../../utils/confetti.js';
 import { getShuffledArrayOfBricks } from './getShuffledArrayOfBricks.js';
 import brickHelpers from './brickHelpers.js';
@@ -447,12 +446,10 @@ const stepRenderers = {
 	},
 };
 
-const render = () => {
-	const main = getMain();
-
+const render = (container) => {
 	const gameContainer = document.createElement('div');
 	gameContainer.className = 'bb';
-	main.appendChild(gameContainer);
+	container.appendChild(gameContainer);
 	const stepRenderer = stepRenderers[state.step];
 
 	if (stepRenderer) {
@@ -483,9 +480,9 @@ const close = () => {
 	resetState();
 };
 
-const restart = () => {
+const restart = (container) => {
 	close();
-	render();
+	render(container);
 };
 
 export default {

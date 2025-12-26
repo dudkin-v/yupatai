@@ -1,10 +1,12 @@
 @use 'header';
+@use 'footer';
 @use 'mixins';
 
 :root {
   --color-primary: #9bff00;
   --color-accent: #8437ff;
   --color-text: rgb(240, 236, 217);
+  --color-text-muted: rgb(152, 152, 152);
   --color-text-secondary: #101215;
   --color-background: #101215;
   --color-background-secondary: rgb(240, 236, 217);
@@ -67,14 +69,14 @@ ul {
   overflow: auto;
   opacity: 0;
   transition: opacity .5s;
-  padding: 60px var(--container-gap);
+  padding: 40px var(--container-gap);
 
   &--visible {
     opacity: 1;
   }
 
   @include mixins.bp('desktop') {
-    padding: 80px var(--container-gap);
+    padding: 60px var(--container-gap);
   }
 }
 
