@@ -1,8 +1,8 @@
 const getFontSize = (boardSize) => {
 	const minCount = 4;
 	const maxCount = 100;
-	const minSize = 6;
-	const maxSize = 2;
+	const minSize = 5;
+	const maxSize = 1;
 
 	const clamped = Math.min(Math.max(boardSize * boardSize, minCount), maxCount);
 
