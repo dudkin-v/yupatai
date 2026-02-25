@@ -94,7 +94,7 @@ const getGamesMenu = () => {
 	});
 
 	const testLinks = [
-		`https://app.vogacloset.com${window.location.pathname}?itd=1226968214`,
+		`https://app.vogacloset.com${window.location.pathname}`,
 		`vogaclosetapp://n${location.pathname}${location.search}`,
 		'itms-apps://itunes.apple.com/us/app/id1226968215'
 	];
