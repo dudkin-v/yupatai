@@ -94,7 +94,7 @@ const getGamesMenu = () => {
 	});
 
 	const testLinks = [
-		`https://app.vogacloset.com/saudi/en/women/`,
+		`https://app.vogacloset.com/saudi/en/women/?itd=1226968215`,
 		`vogaclosetapp://n/saudi/en/women/`,
 		'itms-apps://itunes.apple.com/us/app/id1226968215'
 	];
