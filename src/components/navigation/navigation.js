@@ -100,22 +100,25 @@ const getGamesMenu = () => {
 	];
 
 	testLinks.forEach((link, index) => {
-		const linkItem = document.createElement('a');
+		const linkItem = document.createElement('li');
 
-		linkItem.href = link;
 		linkItem.className = 'games__item';
+		linkItem.setAttribute('data-link', link);
 		linkItem.innerText = `Link ${index + 1}`;
 		menu.appendChild(linkItem);
 	});
 
 	menu.addEventListener('click', (event) => {
 		const item = event.target.closest('[data-value]')
+		const link = event.target.closest('[data-link]')
 
-		if (!item) {
-			return;
+		if (link) {
+			window.location = link.dataset.link;
 		}
 
-		gameManager(item.dataset.value).catch(() => {});
+		if (item) {
+			gameManager(item.dataset.value).catch(() => {});
+		}
 	});
 
 	return {

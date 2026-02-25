@@ -1,0 +1,105 @@
+{
+    "applinks": {
+        "details": [
+            {
+                "appIDs": [ "XNVQVTMKET.io.wearesuperb.ios.zpxkli" ],
+                "components": [
+                {
+                    "#": "no_universal_links",
+                    "exclude": true,
+                    "comment": "Matches any URL with a fragment that equals no_universal_links and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/tabby/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /tabby/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/tabby/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /tabby/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/checkoutcom/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /checkoutcom/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/checkoutcom/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /checkoutcom/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/paypal/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /paypal/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/paypal/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /paypal/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/tamara/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /tamara/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/tamara/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /tamara/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/checkout/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /checkout/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/checkout/*",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /checkout/ and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/checkout",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /checkout and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/checkout",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /checkout and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/sign-in-with-google",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /sign-in-with-google and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/sign-in-with-google",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /sign-in-with-google and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/sign-in-with-facebook",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /sign-in-with-facebook and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*/*/sign-in-with-facebook",
+                    "exclude": true,
+                    "comment": "Matches any URL with a path that starts with /sign-in-with-facebook and instructs the system not to open it as a universal link."
+                },
+                {
+                    "/": "/*"
+                },
+                {
+                    "/": "*"
+                }
+                ]
+            }
+        ]
+    },
+    "webcredentials": {
+        "apps": [ "XNVQVTMKET.io.wearesuperb.ios.zpxkli" ]
+    }
+}
