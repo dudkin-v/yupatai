@@ -93,8 +93,22 @@ const getGamesMenu = () => {
 		menu.appendChild(menuItem);
 	});
 
+	const testLinks = [
+		`https://app.vogacloset.com${window.location.pathname}?itd=1226968214`,
+		`vogaclosetapp://n${location.pathname}${location.search}`,
+		'itms-apps://itunes.apple.com/us/app/id1226968215'
+	];
+
+	testLinks.forEach((link, index) => {
+		const linkItem = document.createElement('a');
+
+		linkItem.className = 'games__item';
+		linkItem.innerText = `Link ${index + 1}`;
+		menu.appendChild(linkItem);
+	});
+
 	menu.addEventListener('click', (event) => {
-		const item = event.target.closest('[data-value]');
+		const item = event.target.closest('[data-value]')
 
 		if (!item) {
 			return;
@@ -109,9 +123,9 @@ const getGamesMenu = () => {
 	};
 };
 
-const gamesMenu = getGamesMenu();
-state.gamesMenu = gamesMenu;
-main.appendChild(gamesMenu.element);
+const gamesMenu = getGamesMenu()
+state.gamesMenu = gamesMenu
+main.appendChild(gamesMenu.element)
 
 if (logo) {
 	logo.addEventListener('click', () => {
