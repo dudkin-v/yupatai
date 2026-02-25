@@ -102,6 +102,7 @@ const getGamesMenu = () => {
 	testLinks.forEach((link, index) => {
 		const linkItem = document.createElement('a');
 
+		linkItem.href = link;
 		linkItem.className = 'games__item';
 		linkItem.innerText = `Link ${index + 1}`;
 		menu.appendChild(linkItem);
