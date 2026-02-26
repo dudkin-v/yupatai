@@ -101,9 +101,11 @@ const getGamesMenu = () => {
 		window.location = 'vogaclosetapp://saudi/en/women/';
 
 		setTimeout(() => {
-			if (document.visibilityState === 'visible') {
-				window.location = 'itms-apps://itunes.apple.com/us/app/id1226968215';
+			if (document.visibilityState !== 'visible') {
+				return;
 			}
+
+			window.location = 'itms-apps://itunes.apple.com/us/app/id1226968215';
 		}, 1500);
 	};
 
