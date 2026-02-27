@@ -93,23 +93,31 @@ const getGamesMenu = () => {
 		menu.appendChild(menuItem);
 	});
 
-	const linkItem = document.createElement('li');
+	const linkItem = document.createElement('a');
 	linkItem.className = 'games__item';
-	linkItem.innerText = `Link`;
+	linkItem.href = 'vogaclosetapp://saudi/en/women/';
+	linkItem.innerText = `Link self`;
 
-	linkItem.onclick = () => {
-		window.location = 'vogaclosetapp://saudi/en/women/';
+	const linkItem2 = document.createElement('a');
+	linkItem.className = 'games__item';
+	linkItem.href = 'vogaclosetapp://saudi/en/women/';
+	linkItem.target = '_blank';
+	linkItem.innerText = `Link blank`;
 
-		setTimeout(() => {
-			if (document.visibilityState !== 'visible') {
-				return;
-			}
-
-			window.location = 'itms-apps://itunes.apple.com/us/app/id1226968215';
-		}, 1500);
-	};
+	// linkItem.onclick = () => {
+	// 	window.location = 'vogaclosetapp://saudi/en/women/';
+	//
+	// 	setTimeout(() => {
+	// 		if (document.visibilityState !== 'visible') {
+	// 			return;
+	// 		}
+	//
+	// 		window.location = 'itms-apps://itunes.apple.com/us/app/id1226968215';
+	// 	}, 1500);
+	// };
 
 	menu.appendChild(linkItem);
+	menu.appendChild(linkItem2);
 
 	menu.addEventListener('click', (event) => {
 		const item = event.target.closest('[data-value]')
