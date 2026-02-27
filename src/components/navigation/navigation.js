@@ -99,10 +99,10 @@ const getGamesMenu = () => {
 	linkItem.innerText = `Link self`;
 
 	const linkItem2 = document.createElement('a');
-	linkItem.className = 'games__item';
-	linkItem.href = 'vogaclosetapp://saudi/en/women/';
-	linkItem.target = '_blank';
-	linkItem.innerText = `Link blank`;
+	linkItem2.className = 'games__item';
+	linkItem2.href = 'vogaclosetapp://saudi/en/women/';
+	linkItem2.target = '_blank';
+	linkItem2.innerText = `Link blank`;
 
 	// linkItem.onclick = () => {
 	// 	window.location = 'vogaclosetapp://saudi/en/women/';
