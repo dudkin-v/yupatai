@@ -96,12 +96,12 @@ const getGamesMenu = () => {
 	const linkItem = document.createElement('a');
 	linkItem.className = 'games__item';
 	linkItem.href = 'vogaclosetapp://saudi/en/women/';
-	linkItem.innerText = `Link to app`;
+	linkItem.innerText = `vogaclosetapp://saudi/en/women/`;
 
 	const linkItem2 = document.createElement('a');
 	linkItem2.className = 'games__item';
-	linkItem2.href = 'https://vogacloset.com/saudi/en/women/';
-	linkItem2.innerText = `Link to web`;
+	linkItem2.href = 'https://appstaging.vogacloset.net/';
+	linkItem2.innerText = `https://appstaging.vogacloset.net/`;
 
 	menu.appendChild(linkItem);
 	menu.appendChild(linkItem2);
