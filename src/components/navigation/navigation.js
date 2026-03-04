@@ -93,24 +93,15 @@ const getGamesMenu = () => {
 		menu.appendChild(menuItem);
 	});
 
-	const linkItem = document.createElement('a');
+	const linkItem = document.createElement('li');
 	linkItem.className = 'games__item';
-	linkItem.href = 'vogaclosetapp://n/saudi/en/women/';
-	linkItem.innerText = `vogaclosetapp`;
-
-	const linkItem2 = document.createElement('a');
-	linkItem2.className = 'games__item';
-	linkItem2.href = 'https://appstaging.vogacloset.net/';
-	linkItem2.innerText = `appstaging.vogacloset.net`;
+	linkItem.innerText = `VC APP deep link`;
 
 	linkItem.onclick = () => {
-		setTimeout(() => {
-			window.location = 'itms-apps://itunes.apple.com/us/app/id1226968215';
-		}, 250);
+		window.location.href = 'https://appstaging.vogacloset.net/saudi/en/women/';
 	};
 
 	menu.appendChild(linkItem);
-	menu.appendChild(linkItem2);
 
 	menu.addEventListener('click', (event) => {
 		const item = event.target.closest('[data-value]')
