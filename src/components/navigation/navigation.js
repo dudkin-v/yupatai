@@ -93,23 +93,8 @@ const getGamesMenu = () => {
 		menu.appendChild(menuItem);
 	});
 
-	const linkItem = document.createElement('li');
-	linkItem.className = 'games__item';
-	linkItem.innerText = `VC APP deep link`;
-
-	linkItem.onclick = () => {
-		window.location.href = 'https://appstaging.vogacloset.net/saudi/en/women/';
-	};
-
-	menu.appendChild(linkItem);
-
 	menu.addEventListener('click', (event) => {
 		const item = event.target.closest('[data-value]')
-		const link = event.target.closest('[data-link]')
-
-		if (link) {
-			window.location = link.dataset.link;
-		}
 
 		if (item) {
 			gameManager(item.dataset.value).catch(() => {});
