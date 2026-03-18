@@ -93,6 +93,12 @@ const getGamesMenu = () => {
 		menu.appendChild(menuItem);
 	});
 
+	const link = document.createElement('a');
+	link.href = 'https://appstaging.vogacloset.net';
+	link.className = 'games__item';
+
+	menu.appendChild(link);
+
 	menu.addEventListener('click', (event) => {
 		const item = event.target.closest('[data-value]')
 
